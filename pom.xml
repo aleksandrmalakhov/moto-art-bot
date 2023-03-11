@@ -10,7 +10,7 @@
     </parent>
     <groupId>ru.malakhov</groupId>
     <artifactId>MotoArtBot</artifactId>
-    <version>SNAPSHOT</version>
+    <version>0.0.1-SNAPSHOT</version>
 
     <name>MotoArtBot</name>
     <description>MotoArtBot</description>
