@@ -1,9 +1,6 @@
 package ru.malakhov.motoartbot.entity;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -12,7 +9,7 @@ import java.time.LocalTime;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
+@Builder
 @Table(name = "orders")
 @EqualsAndHashCode(exclude = "id")
 public class Order {
@@ -31,4 +28,7 @@ public class Order {
     private LocalTime timeStart;
     private LocalTime timeStop;
     private long cost;
+
+    public Order() {
+    }
 }

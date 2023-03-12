@@ -1,9 +1,6 @@
 package ru.malakhov.motoartbot.entity;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,7 +9,7 @@ import javax.persistence.Table;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
+@Builder
 @Table(name = "clients")
 @EqualsAndHashCode(exclude = "id")
 public class Client {
@@ -22,4 +19,7 @@ public class Client {
     private String lastName;
     private String phone;
     private String email;
+
+    public Client() {
+    }
 }

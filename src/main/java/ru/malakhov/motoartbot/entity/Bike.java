@@ -1,9 +1,6 @@
 package ru.malakhov.motoartbot.entity;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -12,7 +9,7 @@ import javax.persistence.Table;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
+@Builder
 @Table(name = "bikes")
 @EqualsAndHashCode(exclude = "id")
 public class Bike {
@@ -20,4 +17,8 @@ public class Bike {
     private Long id;
     private String name;
     private String model;
+    private Integer costPerHour;
+
+    public Bike() {
+    }
 }
