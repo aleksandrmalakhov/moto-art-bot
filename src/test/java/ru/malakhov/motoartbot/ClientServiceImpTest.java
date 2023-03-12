@@ -16,60 +16,56 @@ import java.util.Optional;
 import static org.mockito.Mockito.*;
 
 public class ClientServiceImpTest {
-    private ClientServiceImp clientService;
+    private ClientServiceImp service;
     @Mock
     private ClientRepository repository;
 
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
-        clientService = new ClientServiceImp(repository);
+        service = new ClientServiceImp(repository);
     }
 
     @Test
     public void save_ShouldCallRepositorySave() {
-        // Arrange
         Client client = new Client();
-        // Act
-        clientService.save(client);
-        // Assert
+
+        service.save(client);
+
         verify(repository, times(1)).save(client);
     }
 
     @Test
     public void findById_ShouldReturnClient_WhenClientExists() {
-        // Arrange
         long clientId = 1L;
         Client client = new Client();
         when(repository.findById(clientId)).thenReturn(Optional.of(client));
-        // Act
-        Optional<Client> result = clientService.findById(clientId);
-        // Assert
+
+        Optional<Client> result = service.findById(clientId);
+
         Assertions.assertTrue(result.isPresent());
         Assertions.assertEquals(client, result.get());
     }
 
     @Test
     public void findById_ShouldReturnEmpty_WhenClientDoesNotExist() {
-        // Arrange
         long clientId = 1L;
         when(repository.findById(clientId)).thenReturn(Optional.empty());
-        // Act
-        Optional<Client> result = clientService.findById(clientId);
-        // Assert
+
+        Optional<Client> result = service.findById(clientId);
+
         Assertions.assertTrue(result.isEmpty());
     }
 
     @Test
     public void findAll_ShouldReturnAllClients() {
-        // Arrange
         Client client1 = new Client();
         Client client2 = new Client();
         List<Client> clients = Arrays.asList(client1, client2);
         when(repository.findAll()).thenReturn(clients);
-        // Act
-        List<Client> result = clientService.findAll();
-        // Assert
+
+        List<Client> result = service.findAll();
+
         Assertions.assertEquals(clients, result);
     }
 }

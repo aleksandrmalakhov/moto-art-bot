@@ -10,9 +10,14 @@ import java.util.Optional;
 
 public interface OrderService {
     void save(Order order);
+
     Optional<Order> findById(long id);
+
     List<Order> findAll();
+
     List<Order> findByClient(Client client);
+
     List<Order> findByBike(Bike bike);
+
     List<Order> findByBikeAndTimeStart(Bike bike, LocalTime timeStart);
 }

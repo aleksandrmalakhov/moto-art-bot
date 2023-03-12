@@ -7,6 +7,8 @@ import java.util.Optional;
 
 public interface ClientService {
     void save(Client client);
+
     Optional<Client> findById(long id);
+
     List<Client> findAll();
 }

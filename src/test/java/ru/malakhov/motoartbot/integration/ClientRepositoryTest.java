@@ -29,8 +29,8 @@ public class ClientRepositoryTest {
     public static void beforeAll(){
         clients = new Client[2];
 
-        clients[0] = Client.builder().firstName("John").lastName("Doe").phone("+1-555-555-5555").email("johndoe@example.com").build();
-        clients[1] = Client.builder().firstName("Jane").lastName("Doe").phone("+1-555-555-5556").email("janedoe@example.com").build();
+//        clients[0] = Client.builder().firstName("John").lastName("Doe").phone("+1-555-555-5555").email("johndoe@example.com").build();
+//        clients[1] = Client.builder().firstName("Jane").lastName("Doe").phone("+1-555-555-5556").email("janedoe@example.com").build();
     }
 
     @Before

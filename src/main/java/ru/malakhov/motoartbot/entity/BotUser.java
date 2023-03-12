@@ -4,7 +4,6 @@ import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.Valid;
 import java.time.LocalDateTime;
 
 @Entity
@@ -13,24 +12,19 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "clients")
+@Table(name = "bot_users")
 @EqualsAndHashCode(exclude = "id")
-public class Client {
+public class BotUser {
     @Id
     private Long id;
     private String firstName;
     private String lastName;
-
-    @Valid
-    @PrimaryKeyJoinColumn
-    @OneToOne(mappedBy = "client", cascade = CascadeType.ALL)
-    private Contact contacts;
+    private String userName;
 
     @DateTimeFormat
     private LocalDateTime dateCreate;
 
-    @OneToOne
-    @MapsId
-    @JoinColumn(name = "user_id")
-    private BotUser botUser;
+    @PrimaryKeyJoinColumn
+    @OneToOne(mappedBy = "botUser", cascade = CascadeType.ALL)
+    private Client client;
 }

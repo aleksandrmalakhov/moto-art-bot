@@ -7,6 +7,8 @@ import java.util.Optional;
 
 public interface BikeService {
     void save(Bike bike);
+
     Optional<Bike> findById(long id);
+
     List<Bike> findAll();
 }

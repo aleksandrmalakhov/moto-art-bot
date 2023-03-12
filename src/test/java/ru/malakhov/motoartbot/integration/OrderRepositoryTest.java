@@ -40,8 +40,8 @@ public class OrderRepositoryTest {
         clients = new Client[2];
         bikes = new Bike[2];
 
-        clients[0] = Client.builder().firstName("John").lastName("Doe").phone("+1-555-555-5555").email("johndoe@example.com").build();
-        clients[1] = Client.builder().firstName("Jane").lastName("Doe").phone("+1-555-555-5556").email("janedoe@example.com").build();
+//        clients[0] = Client.builder().firstName("John").lastName("Doe").phone("+1-555-555-5555").email("johndoe@example.com").build();
+//        clients[1] = Client.builder().firstName("Jane").lastName("Doe").phone("+1-555-555-5556").email("janedoe@example.com").build();
 
         bikes[0] = Bike.builder().name("Harley-Davidson").model("Sportster").build();
         bikes[1] = Bike.builder().name("Honda").model("CBR").build();
