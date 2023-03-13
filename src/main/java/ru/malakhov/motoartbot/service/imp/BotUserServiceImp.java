@@ -17,8 +17,8 @@ public class BotUserServiceImp implements BotUserService {
     }
 
     @Override
-    public void save(BotUser botUser) {
-        repository.save(botUser);
+    public BotUser save(BotUser botUser) {
+        return repository.save(botUser);
     }
 
     @Override
@@ -29,5 +29,12 @@ public class BotUserServiceImp implements BotUserService {
     @Override
     public List<BotUser> findAll() {
         return repository.findAll();
+    }
+
+    @Override
+    public long deleteAll() {
+        long count = repository.count();
+        repository.deleteAll();
+        return count;
     }
 }

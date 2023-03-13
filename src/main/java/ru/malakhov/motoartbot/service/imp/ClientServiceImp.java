@@ -17,8 +17,8 @@ public class ClientServiceImp implements ClientService {
     }
 
     @Override
-    public void save(Client client) {
-        repository.save(client);
+    public Client save(Client client) {
+        return repository.save(client);
     }
 
     @Override

@@ -6,6 +6,8 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import ru.malakhov.motoartbot.entity.Contact;
 import ru.malakhov.motoartbot.repository.ContactRepository;
+import ru.malakhov.motoartbot.service.BotUserEmailService;
+import ru.malakhov.motoartbot.service.BotUserPhoneService;
 import ru.malakhov.motoartbot.service.imp.ContactServiceImp;
 
 import java.util.Arrays;
@@ -19,14 +21,17 @@ import static org.mockito.Mockito.*;
 
 public class ContactServiceImpTest {
     private ContactServiceImp service;
-
+    @Mock
+    private BotUserPhoneService phoneService;
+    @Mock
+    private BotUserEmailService emailService;
     @Mock
     private ContactRepository repository;
 
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
-        service = new ContactServiceImp(repository);
+        service = new ContactServiceImp(repository, phoneService, emailService);
     }
 
     @Test
@@ -55,7 +60,7 @@ public class ContactServiceImpTest {
         String email = "johndoe@example.com";
         Contact contact = new Contact();
 
-        when(repository.findByEmail(anyString())).thenReturn(Optional.of(contact));
+        when(service.findByEmail(anyString())).thenReturn(Optional.of(contact));
 
         Optional<Contact> result = service.findByEmail(email);
 
@@ -68,7 +73,7 @@ public class ContactServiceImpTest {
         String phone = "1234567890";
         Contact contact = new Contact();
 
-        when(repository.findByPhone(anyString())).thenReturn(Optional.of(contact));
+        when(service.findByPhone(anyString())).thenReturn(Optional.of(contact));
         Optional<Contact> result = service.findByPhone(phone);
 
         assertTrue(result.isPresent());

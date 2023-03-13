@@ -4,7 +4,6 @@ import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import javax.validation.Valid;
 import java.time.LocalDateTime;
 
 @Entity
@@ -21,16 +20,11 @@ public class Client {
     private String firstName;
     private String lastName;
 
-    @Valid
-    @PrimaryKeyJoinColumn
-    @OneToOne(mappedBy = "client", cascade = CascadeType.ALL)
-    private Contact contacts;
-
     @DateTimeFormat
     private LocalDateTime dateCreate;
 
-    @OneToOne
     @MapsId
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "id")
+    @OneToOne(fetch = FetchType.LAZY)
     private BotUser botUser;
 }

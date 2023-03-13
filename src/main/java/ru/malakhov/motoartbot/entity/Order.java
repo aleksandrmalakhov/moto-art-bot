@@ -1,6 +1,7 @@
 package ru.malakhov.motoartbot.entity;
 
 import lombok.*;
+import ru.malakhov.motoartbot.entity.enums.OrderStatus;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -31,4 +32,7 @@ public class Order {
     private LocalTime timeStart;
     private LocalTime timeStop;
     private long cost;
+
+    @Enumerated(EnumType.STRING)
+    private OrderStatus status;
 }

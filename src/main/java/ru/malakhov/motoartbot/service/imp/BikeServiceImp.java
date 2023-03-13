@@ -17,8 +17,8 @@ public class BikeServiceImp implements BikeService {
     }
 
     @Override
-    public void save(Bike bike) {
-        repository.save(bike);
+    public Bike save(Bike bike) {
+        return repository.save(bike);
     }
 
     @Override

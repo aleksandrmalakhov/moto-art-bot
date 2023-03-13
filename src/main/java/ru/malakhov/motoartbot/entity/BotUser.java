@@ -23,8 +23,4 @@ public class BotUser {
 
     @DateTimeFormat
     private LocalDateTime dateCreate;
-
-    @PrimaryKeyJoinColumn
-    @OneToOne(mappedBy = "botUser", cascade = CascadeType.ALL)
-    private Client client;
 }
